@@ -9,7 +9,7 @@ pipeline {
             steps {
                     script {	
                    echo 'Desplegando Pipeline --> ' +pipelineName
-                sh 'curl -X POST --header "Content-Type:application/json" --header "X-Requested-By:SDC" --data @'+pipelineName+'.json -u "admin:admin" http://172.22.171.20:18630/rest/v1/pipeline/'+pipelineName+'/import?rev=0&overwrite=true&autoGeneratePipelineId=false&includeLibraryDefinitions=true'
+                sh 'curl -X POST --header "Content-Type:application/json" --header "X-Requested-By:SDC" --data @*.json -u "admin:admin" http://172.22.171.20:18630/rest/v1/pipeline/'+pipelineName+'/import?rev=0&overwrite=true&autoGeneratePipelineId=false&includeLibraryDefinitions=true'
                 }
             }
         }
