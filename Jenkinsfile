@@ -17,8 +17,8 @@ pipeline {
 		stage('Iniciando QA') {
             steps {
                     script {	
-                echo 'cargando codigo fuente desde Api Streamsets ' 
-                sh 'curl -X POST --header "Content-Type:application/json" --header "X-Requested-By:SDC" -u "admin:admin" http://127.1.1.0:18630/rest/v1/pipeline/'+pipelineName+'/start?rev=0' --data-binary '{"pMQQueue": "test_mq_queue"}'
+                echo 'Iniciando Pipeline ' 
+                sh 'curl -X POST --header "Content-Type:application/json" --header "X-Requested-By:SDC" -u "admin:admin" http://127.1.1.0:18630/rest/v1/pipeline/'+pipelineName+'/start?rev=0'
             				}
             }
         }
