@@ -18,7 +18,7 @@ pipeline {
             steps {
                     script {	
                    echo 'Cambio Parametros'
-				   def props = readJSON file: Test_MQ.json'
+				   def props = readJSON file: 'Test_MQ.json'
 				   assert props['attr1'] == 'title'
 				   assert props.attr1 == 'title'
                    
