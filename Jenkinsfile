@@ -18,10 +18,13 @@ pipeline {
             steps {
                     script {	
                    echo 'Cambio Parametros'
+				   node {
 				   def props = readJSON file: file+'.json'
 				   echo props.pipelineConfig.title
-				    echo ${props.pipelineConfig.configuration.constants[0].value
-
+						def data = readJSON file:'message2.json'
+						echo "color: ${data.attachments[0].color}"
+						echo ${props.pipelineConfig.configuration.constants.value[0].key
+						}
                 }
             }
         }
