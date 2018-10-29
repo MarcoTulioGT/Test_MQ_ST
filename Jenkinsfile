@@ -20,18 +20,9 @@ pipeline {
                    echo 'Cambio Parametros'
 				   def props = readJSON file: file+'.json'
 				   echo props.pipelineConfig.title
-				   echo props.pipelineConfig.notifyOnStates
-				   echo 'props.pipelineConfig.configuration.constants'
-				   props.pipelineConfig.title = 'HolaMundoParametros'
-				   def jsonList = []
-				   jsonList[0] = [ "pMQHost":"vader" ]
-				   def jsonOut = readJSON text: groovy.json.JsonOutput.toJson(jsonList)
-				   echo 'def outData = {"value" : "amqp://172.22.52.227","key" : "pMQHost"}, {"value" : "V1SERHED","key" : "pMQQueue"}, {"value" : "guest", "key" : "pMQUser" }, { "value" : "guest", "key" : "pMQPassword"}'
-				   echo 'def outJson = groovy.json.JsonOutput.toJson(outData)'
-				   props.pipelineConfig.configuration.constants = jsonOut
-				   node {
-				   writeJSON file: file+'.json', json: props, pretty: 1
-						}
+				   echo props.pipelineConfig.configuration.constants
+				    echo "constants: ${props.pipelineConfig.configuration.constants[0].key"
+
                 }
             }
         }
