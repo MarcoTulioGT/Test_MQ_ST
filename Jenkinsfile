@@ -19,8 +19,7 @@ pipeline {
                     script {	
                    echo 'Cambio Parametros'
 				   def props = readJSON file: file+'.json'
-				   echo props.pipelineConfig.title
-				   echo " valor:  ${props.pipelineConfig.configuration.constants[2].value}"
+				   echo " valor:  ${props.pipelineConfig.title}"
             }
         }
 		}
