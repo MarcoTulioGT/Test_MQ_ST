@@ -14,6 +14,16 @@ pipeline {
                 }
             }
         }
+		stage('Reemplazando Parametros') {
+            steps {
+                    script {	
+                   echo 'Cambio Parametros'
+				   def props = readJSON file: file+'.json'
+				   echo props
+                   
+                }
+            }
+        }
 		stage('Iniciando QA') {
             steps {
                     script {	
@@ -25,6 +35,10 @@ pipeline {
 		
     }
 }
+
+
+
+
 
 
 
