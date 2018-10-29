@@ -16,7 +16,7 @@ pipeline {
 				   echo " valor:  ${props.pipelineConfig.configuration[0].name}"
 				   echo " valor:  ${props.pipelineConfig.configuration[12].name}"
 				   echo " valor:  ${props.pipelineConfig.configuration[12].value}"
-				   def json = JsonOutput.toJson('[[value:,key:pMQHost],[value:,key:pMQQueue],[value:,key:pMQUser],[value:,key:pMQPassword]]')
+				   def json = JsonOutput.prettyPrint(JsonOutput.toJson([value:'guest',key:pMQUser]))
 				   echo "json ----> ${json}"
 				   props.pipelineConfig.configuration[12].value = json
 				   props.pipelineConfig.title = 'HolaJenkinsFile'
