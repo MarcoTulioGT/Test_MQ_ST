@@ -28,7 +28,7 @@ pipeline {
 				   def jsonOut = readJSON text: groovy.json.JsonOutput.toJson(jsonList)
 				   echo 'def outData = {"value" : "amqp://172.22.52.227","key" : "pMQHost"}, {"value" : "V1SERHED","key" : "pMQQueue"}, {"value" : "guest", "key" : "pMQUser" }, { "value" : "guest", "key" : "pMQPassword"}'
 				   echo 'def outJson = groovy.json.JsonOutput.toJson(outData)'
-				   echo  'props.pipelineConfig.configuration.constants = jsonOut'
+				   props.pipelineConfig.configuration.constants = jsonOut
 				   node {
 				   writeJSON file: file+'.json', json: props, pretty: 1
 						}
