@@ -21,7 +21,7 @@ pipeline {
 				   def props = readJSON file: file+'.json'
 				   echo " valor:  ${props.pipelineConfig.title}"
 				   echo " valor:  ${props.pipelineConfig.configuration[0].name}"
-				   echo " valor:  ${props.pipelineConfig.configuration[12].name[0].value}"
+				   echo " valor:  ${props.pipelineConfig.configuration[12].value.[0].value}"
             }
         }
 		}
