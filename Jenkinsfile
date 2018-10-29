@@ -18,12 +18,13 @@ pipeline {
             steps {
                     script {	
                    echo 'Cambio Parametros'
-				   def props = readJSON file: 'Test_MQ.json'
+				   def props = readJSON file: file+'.json'
 				   echo props.pipelineConfig.title
 				   echo props.pipelineConfig.notifyOnStates
 				   echo 'props.pipelineConfig.configuration.constants'
 				   props.pipelineConfig.title = 'HolaMundoJK'
-				   writeJSON file: 'output.json', json: props, pretty: 4
+				   
+				   writeJSON file: file+'.json', json: props, pretty: 4
 
                 }
             }
