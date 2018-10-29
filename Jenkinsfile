@@ -21,7 +21,9 @@ pipeline {
 				   def props = readJSON file: 'Test_MQ.json'
 				   echo props.pipelineConfig.title
 				   echo props.pipelineConfig.notifyOnStates
-				   echo props.pipelineConfig.configuration.constants
+				   echo 'props.pipelineConfig.configuration.constants'
+				   props.pipelineConfig.title = 'HolaMundoJK'
+				   writeJSON file: 'output.json', json: props, pretty: 4
 
                 }
             }
