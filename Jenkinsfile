@@ -20,6 +20,7 @@ pipeline {
                    echo 'Cambio Parametros'
 				   def props = readJSON file: 'Test_MQ.json'
 				   echo props.pipelineConfig.title
+				   echo props.configuration.constants
 
                 }
             }
