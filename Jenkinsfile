@@ -19,7 +19,7 @@ pipeline {
                     script {	
                    echo 'Cambio Parametros'
 				   def props = readJSON file: 'Test_MQ.json'
-				   assert props['title'] == 'Test_MQ'
+				   assert props['attr1'] == 'title'
 
                 }
             }
