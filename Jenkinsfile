@@ -24,6 +24,7 @@ pipeline {
 				   echo " valor:  ${props.pipelineConfig.configuration[12].name}"
 				   echo " valor:  ${props.pipelineConfig.configuration[12].value}"
 				   props.pipelineConfig.configuration[12].value = '[[value:666.66.66.6, key:pMQHost], [value:Queue_prueba, key:pMQQueue], [value:guest, key:pMQUser], [value:guest, key:pMQPassword]]'
+				   props.pipelineConfig.title = 'HolaJenkinsFile'
 				   writeJSON file: file+'.json', json: props, pretty: 1
             }
         }
