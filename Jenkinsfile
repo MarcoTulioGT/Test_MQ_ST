@@ -20,9 +20,7 @@ pipeline {
                    echo 'Cambio Parametros'
 				   def props = readJSON file: file+'.json'
 				   echo props.pipelineConfig.title
-						def data = readJSON file:'message2.json'
-						echo "color: ${data.attachments[0].color}"
-						echo " valor:  ${props.pipelineConfig.configuration.constants.value[0].key}"
+				   echo " valor:  ${props.pipelineConfig.configuration.constants.value[0].key}"
             }
         }
 		}
