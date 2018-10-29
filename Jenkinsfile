@@ -23,7 +23,7 @@ pipeline {
 				   echo props.pipelineConfig.notifyOnStates
 				   echo 'props.pipelineConfig.configuration.constants'
 				   props.pipelineConfig.title = 'HolaMundoParametros'
-				   props.pipelineConfig.configuration.constants = '[{"value" : "amqp://172.22.52.227","key" : "pMQHost"}, {"value" : "V1SERHED","key" : "pMQQueue"}, {"value" : "guest", "key" : "pMQUser" }, { "value" : "guest", "key" : "pMQPassword"} ]'
+				   props.pipelineConfig.configuration.constants = '{"value" : "amqp://172.22.52.227","key" : "pMQHost"}, {"value" : "V1SERHED","key" : "pMQQueue"}, {"value" : "guest", "key" : "pMQUser" }, { "value" : "guest", "key" : "pMQPassword"}'
 				   writeJSON file: file+'.json', json: props, pretty: 4
 
                 }
