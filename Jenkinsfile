@@ -21,8 +21,7 @@ pipeline {
 				   def props = readJSON file: 'Test_MQ.json'
 				   assert props['attr1'] == 'title'
 				   assert props.attr1 == 'title'
-                   
-				   def props = readJSON text: '{ "title": "800" }'
+
                 }
             }
         }
