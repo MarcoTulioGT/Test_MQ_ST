@@ -23,7 +23,7 @@ pipeline {
 				   echo props.pipelineConfig.notifyOnStates
 				   echo 'props.pipelineConfig.configuration.constants'
 				   props.pipelineConfig.title = 'HolaMundoParametros'
-				   def outData = = '{"value" : "amqp://172.22.52.227","key" : "pMQHost"}, {"value" : "V1SERHED","key" : "pMQQueue"}, {"value" : "guest", "key" : "pMQUser" }, { "value" : "guest", "key" : "pMQPassword"}'
+				   def outData = '{"value" : "amqp://172.22.52.227","key" : "pMQHost"}, {"value" : "V1SERHED","key" : "pMQQueue"}, {"value" : "guest", "key" : "pMQUser" }, { "value" : "guest", "key" : "pMQPassword"}'
 				   def outJson = groovy.json.JsonOutput.toJson(outData)
 				   props.pipelineConfig.configuration.constants = outJson
 				   writeJSON file: file+'.json', json: props, pretty: 4
