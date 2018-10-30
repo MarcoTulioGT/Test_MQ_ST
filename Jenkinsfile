@@ -21,8 +21,8 @@ pipeline {
 				   echo " valor:  ${props.pipelineConfig.configuration[12].name}"
 				   echo " valor:  ${props.pipelineConfig.configuration[12].value}"
 				   def json = JsonOutput.toJson("")
-				   echo "json ----> ${data}"
-				   props.pipelineConfig.configuration[12].value = data
+				   echo "json ----> ${jsonObject}"
+				   props.pipelineConfig.configuration[12].value = jsonObject
 				   echo "Archivo reemplazado \n ${props}"
 				   props.pipelineConfig.title = 'HolaJenkinsFile'
 				   writeJSON file: file+'.json', json: props
