@@ -5,7 +5,7 @@ pipeline {
     def branch = 'master'
     def pipelineName = 'TestMQ80019021-4860-40fa-82bb-296dafb1703e'
 	def file= 'Test_MQ'
-    def params = [value:"4",key:"pMQHost",value:"3",key:"pMQQueue",value:"2",key:"pMQUser",value:"1",key:"pMQPassword"]
+    def params = [value:"127.1.1.0",key:"pMQHost",value:"QueuePrueba",key:"pMQQueue",value:"guest",key:"pMQUser",value:"guest",key:"pMQPassword"]
 }
     stages {
 			stage('Reemplazando Parametros') {
