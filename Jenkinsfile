@@ -5,7 +5,22 @@ pipeline {
     def branch = 'master'
     def pipelineName = 'TestMQ80019021-4860-40fa-82bb-296dafb1703e'
 	def file= 'Test_MQ'
-    def params = [values:[value:"127.1.1.0",key:"pMQHost",value:"QueuePrueba",key:"pMQQueue",value:"guest",key:"pMQUser",value:"guest",key:"pMQPassword"]]
+       def data = [
+        attachments:[
+            [
+                fallback: "New open task [Urgent]: <http://url_to_task|Test out Slack message attachments>",
+                pretext : "New open task [Urgent]: <http://url_to_task|Test out Slack message attachments>",
+                color   : "#D00000",
+                fields  :[
+                    [
+                        title: "Notes",
+                        value: "This is much easier than I thought it would be.",
+                        short: false
+                    ]
+                ]
+            ]
+        ]
+    ]
 }
     stages {
 			stage('Reemplazando Parametros') {
@@ -18,8 +33,8 @@ pipeline {
 				   echo " valor:  ${props.pipelineConfig.configuration[12].name}"
 				   echo " valor:  ${props.pipelineConfig.configuration[12].value}"
 				   def json = JsonOutput.toJson("")
-				   echo "json ----> ${json}"
-				   props.pipelineConfig.configuration[12].value = params
+				   echo "json ----> ${data}"
+				   props.pipelineConfig.configuration[12].value = data
 				   echo "Archivo reemplazado \n ${props}"
 				   props.pipelineConfig.title = 'HolaJenkinsFile'
 				   writeJSON file: file+'.json', json: props
