@@ -29,7 +29,7 @@ pipeline {
             steps {
                     script {	
                    echo 'Desplegando Pipeline --> ' +pipelineName
-				   sh 'more Test_MQ.json'
+				  echo sh 'cat Test_MQ.json'
                    sh 'curl -X POST --header "Content-Type:application/json" --header "X-Requested-By:SDC" --data @'+file+'.json -u "admin:admin" http://127.1.1.0:18630/rest/v1/pipeline/'+pipelineName+'/import?rev=0&overwrite=true&autoGeneratePipelineId=false&includeLibraryDefinitions=true'
                 }
             }
