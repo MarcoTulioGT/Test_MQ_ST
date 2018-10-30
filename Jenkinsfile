@@ -20,7 +20,7 @@ pipeline {
 				   echo "json ----> ${json}"
 				   props.pipelineConfig.configuration[12].value = json
 				   props.pipelineConfig.title = 'HolaJenkinsFile'
-				   writeJSON file: file+'.json', json: props, pretty: 4
+				   writeJSON file: file+'.json', json: props
             }
         }
 		}
