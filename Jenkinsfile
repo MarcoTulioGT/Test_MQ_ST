@@ -1,26 +1,14 @@
 import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+
 pipeline {
     agent any
      environment {
     def branch = 'master'
     def pipelineName = 'TestMQ80019021-4860-40fa-82bb-296dafb1703e'
 	def file= 'Test_MQ'
-       def data = [
-        attachments:[
-            [
-                fallback: "New open task [Urgent]: <http://url_to_task|Test out Slack message attachments>",
-                pretext : "New open task [Urgent]: <http://url_to_task|Test out Slack message attachments>",
-                color   : "#D00000",
-                fields  :[
-                    [
-                        title: "Notes",
-                        value: "This is much easier than I thought it would be.",
-                        short: false
-                    ]
-                ]
-            ]
-        ]
-    ]
+    def jsonObject = jsonSlurper.parseText('{ "vowels" : ["a", "e", "i", "o", "u"] }')
+
 }
     stages {
 			stage('Reemplazando Parametros') {
