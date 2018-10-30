@@ -16,7 +16,7 @@ pipeline {
 				   echo " valor:  ${props.pipelineConfig.configuration[0].name}"
 				   echo " valor:  ${props.pipelineConfig.configuration[12].name}"
 				   echo " valor:  ${props.pipelineConfig.configuration[12].value}"
-				   def json = JsonOutput.toJson("[[value:'1', key:'pMQHost'], [value:'2', key:'pMQQueue'], [value:'3', key:'pMQUser'], [value:'4', key:'pMQPassword']]")
+				   def json = JsonOutput.toJson("[[value:'mq://172.22.52.227', key:'pMQHost'], [value:'V1SERHED', key:'pMQQueue'], [value:'guest', key:'pMQUser'], [value:'guest', key:'pMQPassword']]")
 				   echo "json ----> ${json}"
 				   props.pipelineConfig.configuration[12].value = json
 				   echo "Archivo reemplazado \n ${props}"
@@ -37,7 +37,7 @@ pipeline {
             steps {
                     script {	
                 echo 'Iniciando Pipeline ' 
-                sh 'curl -X POST --header "Content-Type:application/json" --header "X-Requested-By:SDC" --data-binary "{"pMQQueue": "test_mq_queue"}" -u "admin:admin" http://127.1.1.0:18630/rest/v1/pipeline/'+pipelineName+'/start?rev=0'
+                sh 'curl -X POST --header "Content-Type:application/json" --header "X-Requested-By:SDC"  -u "admin:admin" http://127.1.1.0:18630/rest/v1/pipeline/'+pipelineName+'/start?rev=0'
             				}
             }
         }
