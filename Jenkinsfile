@@ -18,7 +18,7 @@ pipeline {
 				   echo " valor:  ${props.pipelineConfig.configuration[12].value}"
 				   def json = JsonOutput.toJson('[{"value":"4","key":"pMQHost"},{"value":"3","key":"pMQQueue"},{"value":"2","key":"pMQUser"},{"value":"1","key":"pMQPassword"}]')
 				   echo "json ----> ${json}"
-				   props.pipelineConfig.configuration[12].value = json
+				   props.pipelineConfig.configuration[12].value = '[{"value":"4","key":"pMQHost"},{"value":"3","key":"pMQQueue"},{"value":"2","key":"pMQUser"},{"value":"1","key":"pMQPassword"}]'
 				   echo "Archivo reemplazado \n ${props}"
 				   props.pipelineConfig.title = 'HolaJenkinsFile'
 				   writeJSON file: file+'.json', json: props
