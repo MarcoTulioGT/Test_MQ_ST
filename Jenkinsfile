@@ -42,7 +42,7 @@ pipeline {
             steps{
                 script{
                     def fileJson = workspace+'/'+file+'.json'
-             def json = readFile(file:fileJson)
+             def json = readFile(file:'fileJson')
              def data = new JsonSlurperClassic().parseText(json)
              echo " valor:  ${data.pipelineConfig.configuration[0].name}"
 
