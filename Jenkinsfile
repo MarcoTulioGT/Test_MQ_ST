@@ -35,9 +35,9 @@ pipeline {
             steps{
                 script{
                         def jsonSlurper = new JsonSlurper()
-                        def object = jsonSlurper.parseText('[{"value":"127.0.0.1", "key":"pMQHost"},{"value": "Queue_prueba","key": "pMQQueue"},{"value": "guest","key": "pMQUser"},{"value": "guest","key": "pMQPassword"}] /* some comment */')
+                        def object = jsonSlurper.parseText('{"name":"constants","value":[{"value":"127.0.0.1", "key":"pMQHost"},{"value": "Queue_prueba","key": "pMQQueue"},{"value": "guest","key": "pMQUser"},{"value": "guest","key": "pMQPassword"}]} /* some comment */')
                         assert object instanceof list
-                        assert object.value == '127.0.0.1'
+                        echo object.value
                 }
             }
         }
