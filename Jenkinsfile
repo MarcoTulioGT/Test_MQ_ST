@@ -14,7 +14,6 @@ pipeline {
     def branch = 'master'
     def pipelineName = 'TestMQ80019021-4860-40fa-82bb-296dafb1703e'
 	def file= 'Test_MQ'
-    def workspace = pwd()
 
 }
     stages {
@@ -23,7 +22,7 @@ pipeline {
                 script{
                         def jsonSlurper = new JsonSlurper()
                         def object = jsonSlurper.parseText('{"name":"constants","value":[{"value":"127.0.0.1", "key":"pMQHost"},{"value": "Queue_prueba","key": "pMQQueue"},{"value": "guest","key": "pMQUser"},{"value": "guest","key": "pMQPassword"}]} /* some comment */')
-                        assert object instanceof Map
+                       
                 }
             }
         }
@@ -38,11 +37,5 @@ pipeline {
 		
     }
 }
-
-
-
-
-
-
 
 
