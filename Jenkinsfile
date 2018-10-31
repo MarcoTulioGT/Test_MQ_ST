@@ -1,6 +1,7 @@
-package com.javacodegeeks.example.groovy.json;
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
+import groovy.json.JsonBuilder
+
 
 pipeline {
     agent any
@@ -33,6 +34,15 @@ pipeline {
             }
         }
 		}
+        stage('Parametrizando'){
+            steps{
+                script{
+                    reader = new BufferedReader(new InputStreamReader(new FileInputStream(file+'json'),"UTF-8"));
+                    data = jsonSlurper.parse(reader);
+                    println(data.pipelineConfig.title)
+                }
+            }
+        }
         stage('Despliegue QA') {
             steps {
                     script {	
