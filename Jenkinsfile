@@ -42,7 +42,7 @@ pipeline {
             steps{
                 script{
 
-               def jsonSlurper = new JsonSlurper(type: JsonParserType.INDEX_OVERLAY)
+               def jsonSlurper = new JsonSlurper()
                def object = jsonSlurper.parseText('{ "myList": [4, 8, 15, 16, 23, 42] }')
                echo object
    
