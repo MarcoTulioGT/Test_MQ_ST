@@ -44,7 +44,7 @@ pipeline {
 
                def jsonSlurper = new JsonSlurper()
                def object = jsonSlurper.parseText('{ "myList": [4, 8, 15, 16, 23, 42] }')
-               echo object.myList
+               echo object.myList[0]
    
                 }
             }
