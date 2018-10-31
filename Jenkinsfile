@@ -8,7 +8,7 @@ pipeline {
     def branch = 'master'
     def pipelineName = 'TestMQ80019021-4860-40fa-82bb-296dafb1703e'
 	def file= 'Test_MQ'
-    def jsonLiteral = ["name": "Raghavan", "id" : 1]
+    def jsonLiteral = '["name": "Raghavan", "id" : 1]'
     println "JSON Literal as JSON : " + JsonOutput.toJson(jsonLiteral)
     println "JSON Literal as JSON formatted : "
     println JsonOutput.prettyPrint(JsonOutput.toJson(jsonLiteral))
