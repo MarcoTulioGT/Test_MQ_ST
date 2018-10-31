@@ -40,7 +40,7 @@ pipeline {
                 def jsonSlurper = new JsonSlurper()
                 def reader = new BufferedReader(new InputStreamReader(new FileInputStream('/var/lib/jenkins/workspace/Test_MQ/'+file+'.json'),"UTF-8"));
                 def data = jsonSlurper.parse(reader);  
-                  echo "#######-----DATA-----############"+data
+                  echo "#######-----DATA-----############" data.pipelineConfig.pMQHost
                 }
             }
         }
