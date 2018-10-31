@@ -43,8 +43,8 @@ pipeline {
                 script{
 
                def jsonSlurper = new JsonSlurper()
-               echo workspace+file'.json'
-               def object = jsonSlurper.parseFile (workspace+file'.json')
+               echo workspace+file+'.json'
+               def object = jsonSlurper.parseFile (workspace+file+'.json')
                echo object.myList[0]
    
                 }
