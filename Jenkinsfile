@@ -37,7 +37,8 @@ pipeline {
         stage('Parametrizando'){
             steps{
                 script{
-                  def  reader = new FileInputStream('/var/lib/jenkins/workspace/Test_MQ/'+file+'.json');
+                   def reader = new BufferedReader(new InputStreamReader(new FileInputStream('/var/lib/jenkins/workspace/Test_MQ/'+file+'.json'),"UTF-8"));
+
                 }
             }
         }
