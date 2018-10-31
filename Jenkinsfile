@@ -22,7 +22,7 @@ pipeline {
 				   echo " valor:  ${props.pipelineConfig.configuration[12].value}"
 				   def json = JsonOutput.toJson("")
 				   echo "json ----> ${props}"
-				   def jsonLiteral = ["name": "Raghavan", "id" : 1]
+				   def jsonLiteral = ["value":"127.0.0.1","key":"pMQHost"]
                    println "JSON Literal as JSON : " + JsonOutput.toJson(jsonLiteral)
 
                    props.pipelineConfig.configuration[12].value = JsonOutput.toJson(jsonLiteral)
