@@ -43,7 +43,8 @@ pipeline {
                 script{
 
                def jsonSlurper = new JsonSlurper()
-               def object = jsonSlurper.parseText('{ "myList": [4, 8, 15, 16, 23, 42] }')
+               echo workspace+file'.json'
+               def object = jsonSlurper.parseFile (workspace+file'.json')
                echo object.myList[0]
    
                 }
