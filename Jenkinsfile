@@ -56,10 +56,11 @@ pipeline {
         stage('Parametrizando'){
             steps{
                 script{
-                def jsonSlurper = new JsonSlurper()
-                def reader = new BufferedReader(new InputStreamReader(new FileInputStream('/var/lib/jenkins/workspace/Test_MQ/'+file+'.json'),"UTF-8"));
-                def data = jsonSlurper.parse(reader);  
-                  echo "#######-----DATA-----############"
+               def jsonSlurper = new JsonSlurper()
+               def object = jsonSlurper.parseText('{ "myList": [4, 8, 15, 16, 23, 42] }')
+               assert object instanceof Map
+               assert object.myList instanceof List
+               echo myList
                 }
             }
         }
