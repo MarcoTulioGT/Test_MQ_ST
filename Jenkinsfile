@@ -24,7 +24,6 @@ pipeline {
                         def jsonSlurper = new JsonSlurper()
                         def object = jsonSlurper.parseText('{"name":"constants","value":[{"value":"127.0.0.1", "key":"pMQHost"},{"value": "Queue_prueba","key": "pMQQueue"},{"value": "guest","key": "pMQUser"},{"value": "guest","key": "pMQPassword"}]} /* some comment */')
                         assert object instanceof Map
-                        assert object.value instanceof List
                 }
             }
         }
