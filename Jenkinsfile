@@ -2,6 +2,19 @@ import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
 import groovy.json.JsonBuilder
 
+/* Only keep the 10 most recent builds. */
+def projectProperties = [
+    [$class: 'BuildDiscarderProperty',strategy: [$class: 'LogRotator', numToKeepStr: '5']],
+]
+def imageName = 'jenkinsciinfra/jenkinsio'
+
+if (!env.CHANGE_ID) {
+    if (env.BRANCH_NAME == null) {
+        projectProperties.add(pipelineTriggers([cron('H/30 * * * *'), pollSCM('H/5 * * * *')]))
+    }
+}
+
+properties(projectProperties)
 
 pipeline {
     agent any
@@ -40,7 +53,7 @@ pipeline {
                 def jsonSlurper = new JsonSlurper()
                 def reader = new BufferedReader(new InputStreamReader(new FileInputStream('/var/lib/jenkins/workspace/Test_MQ/'+file+'.json'),"UTF-8"));
                 def data = jsonSlurper.parse(reader);  
-                  echo "#######-----DATA-----############" data.pipelineConfig.pMQHost
+                  echo "#######-----DATA-----############" data.pipelineConfig.configuration.each{result.}
                 }
             }
         }
