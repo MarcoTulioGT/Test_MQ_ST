@@ -23,9 +23,9 @@ pipeline {
 				   def json = JsonOutput.toJson("")
 				   echo "json ----> ${props}"
 				   def jsonLiteral = ["value":"127.0.0.1","key":"pMQHost"]
-                   println "JSON Literal as JSON : " + JsonOutput.toJson(jsonLiteral)
+                   println "JSON Literal as JSON : " + JsonOutput.prettyPrint(JsonOutput.toJson(jsonLiteral))
 
-                   props.pipelineConfig.configuration[12].value = JsonOutput.toJson(jsonLiteral)
+                   props.pipelineConfig.configuration[12].value = JsonOutput.prettyPrint(JsonOutput.toJson(jsonLiteral))
 				   echo "Archivo reemplazado \n ${props}"
 				   props.pipelineConfig.title = 'HolaJenkinsFile'
 				   writeJSON file: file+'.json', json: props
