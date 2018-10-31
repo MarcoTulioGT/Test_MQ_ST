@@ -22,14 +22,13 @@ pipeline {
 				   echo " valor:  ${props.pipelineConfig.configuration[12].value}"
 				   def json = JsonOutput.toJson("")
 				   echo "json ----> ${props}"
-				   props.pipelineConfig.configuration[12].value = json
+				   def jsonLiteral = ["name": "Raghavan", "id" : 1]
+                   println "JSON Literal as JSON : " + JsonOutput.toJson(jsonLiteral)
+
+                   props.pipelineConfig.configuration[12].value = JsonOutput.toJson(jsonLiteral)
 				   echo "Archivo reemplazado \n ${props}"
 				   props.pipelineConfig.title = 'HolaJenkinsFile'
 				   writeJSON file: file+'.json', json: props
-
-
-                       def jsonLiteral = ["name": "Raghavan", "id" : 1]
-    println "JSON Literal as JSON : " + JsonOutput.toJson(jsonLiteral)
 
             }
         }
