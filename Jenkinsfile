@@ -28,7 +28,7 @@ pipeline {
 				   writeJSON file: file+'.json', json: props
 
 
-                       def jsonLiteral = '["name": "Raghavan", "id" : 1]'
+                       def jsonLiteral = ["name": "Raghavan", "id" : 1]
     println "JSON Literal as JSON : " + JsonOutput.toJson(jsonLiteral)
 
             }
