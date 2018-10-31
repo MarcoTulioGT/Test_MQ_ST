@@ -1,3 +1,4 @@
+package com.javacodegeeks.example.groovy.json;
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
 
