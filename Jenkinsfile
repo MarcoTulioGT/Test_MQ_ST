@@ -41,10 +41,10 @@ pipeline {
         stage('Parametrizando'){
             steps{
                 script{
+             def json = readFile(file:workspace+'/'+file+'.json')
+             def data = new JsonSlurperClassic().parseText(json)
+             echo " valor:  ${data.pipelineConfig.configuration[0].name}"
 
-               def jsonSlurper = new JsonSlurper()
-               def file = workspace+'/'+file+'.json'
-               def object = jsonSlurper.parse('file')
    
                 }
             }
