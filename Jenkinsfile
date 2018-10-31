@@ -44,7 +44,7 @@ pipeline {
 
                def jsonSlurper = new JsonSlurper()
                def file = workspace+'/'+file+'.json'
-               def object = jsonSlurper.parseFile(file)
+               def object = jsonSlurper.parse(file)
    
                 }
             }
