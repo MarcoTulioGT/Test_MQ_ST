@@ -38,8 +38,6 @@ pipeline {
             steps{
                 script{
                     reader = new BufferedReader(new InputStreamReader(new FileInputStream('/var/lib/jenkins/workspace/Test_MQ/'+file+'.json'),"UTF-8"));
-                    data = jsonSlurper.parse(reader);
-                    println(data.pipelineConfig.title)
                 }
             }
         }
