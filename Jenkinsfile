@@ -11,7 +11,7 @@ import java.net.URL
 pipeline {
     agent any
      environment {
-    def branch = 'master'
+    def branch = 'QA'
     def pipelineName = 'TestMQ80019021-4860-40fa-82bb-296dafb1703e'
 	def file= 'Test_MQ'
     def workspace = pwd()
@@ -24,6 +24,8 @@ pipeline {
                         def jsonSlurper = new JsonSlurper()
                         def object = jsonSlurper.parseText('{"name":"constants","value":[{"value":"127.0.0.1", "key":"pMQHost"},{"value": "Queue_prueba","key": "pMQQueue"},{"value": "guest","key": "pMQUser"},{"value": "guest","key": "pMQPassword"}]} /* some comment */')
                         assert object instanceof Map
+                        assert object.value instanceof List
+                        echo object.value
                 }
             }
         }
