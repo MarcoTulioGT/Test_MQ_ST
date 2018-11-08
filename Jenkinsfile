@@ -46,6 +46,7 @@ pipeline {
              def data = new JsonSlurperClassic().parseText(json)
              echo " valor:  ${data.pipelineConfig.configuration[12].name}"
              echo " valor:  ${data.pipelineConfig.configuration[12].value}"
+             echo " valor:  ${data.pipelineConfig.configuration[12].value[0].key}"
 
    
                 }
