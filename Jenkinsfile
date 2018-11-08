@@ -47,7 +47,10 @@ pipeline {
              //echo " valor:  ${data.pipelineConfig.configuration[12].name}"
              //echo " valor:  ${data.pipelineConfig.configuration[12].value}"
              //echo " valor:  ${data.pipelineConfig.configuration[12].value[0].key}"
-             data.pipelineConfig.configuration[12].value[0].value = "127.0.0.1"
+             data.pipelineConfig.configuration[12].value[0].value = "amqp://172.22.52.227"
+             data.pipelineConfig.configuration[12].value[1].value = "V1SERHED"
+             data.pipelineConfig.configuration[12].value[2].value = "guest"
+             data.pipelineConfig.configuration[12].value[3].value = "guest"
              //echo " valor:  ${data.pipelineConfig.configuration[12].value[0].value}"
              def json2 = JsonOutput.toJson(data)
              json2 = JsonOutput.prettyPrint(json2)
