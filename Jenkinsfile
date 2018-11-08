@@ -47,6 +47,8 @@ pipeline {
              echo " valor:  ${data.pipelineConfig.configuration[12].name}"
              echo " valor:  ${data.pipelineConfig.configuration[12].value}"
              echo " valor:  ${data.pipelineConfig.configuration[12].value[0].key}"
+             data.pipelineConfig.configuration[12].value[0].value = "127.0.0.1"
+             echo " valor:  ${data.pipelineConfig.configuration[12].value[0].value}"
 
    
                 }
