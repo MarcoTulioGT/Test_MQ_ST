@@ -76,6 +76,7 @@ pipeline {
             steps {
                     script {	
                 echo 'Iniciando Pipeline ' 
+                sh 'curl -X POST --header "Content-Type:application/json" --header "X-Requested-By:SDC" -u "admin:admin" http://172.22.171.20/rest/v1/pipeline/TestMQ80019021-4860-40fa-82bb-296dafb1703e/start?rev=0'
                			}
             }
         }
