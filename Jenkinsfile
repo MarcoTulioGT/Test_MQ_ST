@@ -42,7 +42,7 @@ pipeline {
             steps{
                 script{
                     def fileJson = workspace+'/'+file+'.json'
-             def json = readFile(file:'Test_MQ.json')
+             def json = readFile(file:'/var/lib/jenkins/workspace/Test_MQ/Test_MQ.json')
              def data = new JsonSlurperClassic().parseText(json)
              echo " valor:  ${data.pipelineConfig.configuration[1].name}"
 
