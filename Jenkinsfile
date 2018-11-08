@@ -67,6 +67,8 @@ pipeline {
              def jsonQA = readFile(file:'/var/lib/jenkins/workspace/Test_MQ/Test_MQ_wP.json')
              def data = new JsonSlurperClassic().parseText(jsonQA)
              echo " valor:  ${data.pipelineConfig.configuration[12].value}"
+
+             sh 'curl -X POST --header "Content-Type:application/json" --header "X-Requested-By:SDC" --data @Test_MQ_wP.json -u "admin:admin" http://172.22.171.20:18630/rest/v1/pipeline/'+pipelineName+'/import?rev=0&overwrite=true&autoGeneratePipelineId=false&includeLibraryDefinitions=true'
 			 }
             }
         }
