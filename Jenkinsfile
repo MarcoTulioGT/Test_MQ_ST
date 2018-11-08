@@ -45,6 +45,7 @@ pipeline {
              def json = readFile(file:'/var/lib/jenkins/workspace/Test_MQ/Test_MQ.json')
              def data = new JsonSlurperClassic().parseText(json)
              echo " valor:  ${data.pipelineConfig.configuration[12].name}"
+             echo " valor:  ${data.pipelineConfig.configuration[12].value}"
 
    
                 }
