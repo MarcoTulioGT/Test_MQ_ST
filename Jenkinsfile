@@ -49,9 +49,9 @@ pipeline {
              //echo " valor:  ${data.pipelineConfig.configuration[12].value[0].key}"
              data.pipelineConfig.configuration[12].value[0].value = "127.0.0.1"
              //echo " valor:  ${data.pipelineConfig.configuration[12].value[0].value}"
-             def json = JsonOutput.toJson(data)
-             json = JsonOutput.prettyPrint(json)
-             writeFile(file:'Test_MQ_wP.json', text: json)
+             def json2 = JsonOutput.toJson(data)
+             json2 = JsonOutput.prettyPrint(json2)
+             writeFile(file:'Test_MQ_wP.json', text: json2)
    
                 }
             }
@@ -61,8 +61,8 @@ pipeline {
                     script {	
                    echo 'Desplegando Pipeline --> ' +pipelineName
                    
-             def json = readFile(file:'/var/lib/jenkins/workspace/Test_MQ/Test_MQ_wP.json')
-             def data = new JsonSlurperClassic().parseText(json)
+             def jsonQA = readFile(file:'/var/lib/jenkins/workspace/Test_MQ/Test_MQ_wP.json')
+             def data = new JsonSlurperClassic().parseText(jsonQA)
              echo " valor:  ${data.pipelineConfig.configuration[12].value}"
 			 }
             }
