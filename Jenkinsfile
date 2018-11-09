@@ -40,7 +40,7 @@ pipeline {
 		}
         stage('Parametrizando'){
             steps{
-                script{
+               
              Properties prop = new Properties()
              //def content = readFile 'Test_MQ.properties'
              //InputStream is = new ByteArrayInputStream(content.getBytes());
@@ -64,7 +64,7 @@ pipeline {
 			// 	input.close();
 			// } catch (IOException e) {
 			// 	e.printStackTrace();
-			 
+			  script{
 		
 	
 
