@@ -43,8 +43,6 @@ pipeline {
                 script{
              Properties properties = new Properties()
              def content = readFile 'Test_MQ.properties'
-
-             Properties properties = new Properties()
              InputStream is = new ByteArrayInputStream(content.getBytes());
              properties.load(is)
 
