@@ -64,7 +64,8 @@ pipeline {
 			// 	input.close();
 			// } catch (IOException e) {
 			// 	e.printStackTrace();
-             
+               }
+              script{
 		
 	
 
@@ -72,6 +73,7 @@ pipeline {
              def fileJson = workspace+'/'+file+'.json'
              def json = readFile(file:'/var/lib/jenkins/workspace/Test_MQ/Test_MQ.json')
              def data = new JsonSlurperClassic().parseText(json)
+             echo "pMQHost:  ${prop.getProperty("pMQHost")}"
              data.pipelineConfig.configuration[12].value[0].value = "amqp://172.22.52.227"
              data.pipelineConfig.configuration[12].value[1].value = "V1SERHED"
              data.pipelineConfig.configuration[12].value[2].value = "guest"
