@@ -48,8 +48,8 @@ pipeline {
             InputStream input = null;
             try {
             input = new FileInputStream("/var/lib/jenkins/workspace/Test_MQ/Test_MQ.properties");
-            prop.load(input);
-            prop.list(System.out);
+            //prop.load(input);
+            //prop.list(System.out);
 
            // echo "pMQPassword:  ${prop.getProperty("pMQPassword")}"
             //echo "pMQQueue:  ${properties.pMQQueue}"
