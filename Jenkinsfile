@@ -41,12 +41,18 @@ pipeline {
         stage('Parametrizando'){
             steps{
                 script{
+             Properties properties = new Properties()
+             File propertiesFile = new File('Test_MQ.properties')
+             if (propertiesFile.exists()){
+		    propertiesFile.withInputStream{
+		        properties.load(it)
+		        }
+		    }
+           echo "pMQPassword:  ${properties.pMQPassword}""
+
              def fileJson = workspace+'/'+file+'.json'
              def json = readFile(file:'/var/lib/jenkins/workspace/Test_MQ/Test_MQ.json')
              def data = new JsonSlurperClassic().parseText(json)
-             //echo " valor:  ${data.pipelineConfig.configuration[12].name}"
-             //echo " valor:  ${data.pipelineConfig.configuration[12].value}"
-             //echo " valor:  ${data.pipelineConfig.configuration[12].value[0].key}"
              data.pipelineConfig.configuration[12].value[0].value = "amqp://172.22.52.227"
              data.pipelineConfig.configuration[12].value[1].value = "V1SERHED"
              data.pipelineConfig.configuration[12].value[2].value = "guest"
