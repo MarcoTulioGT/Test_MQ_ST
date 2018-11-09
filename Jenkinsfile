@@ -41,7 +41,7 @@ pipeline {
         stage('Parametrizando'){
             steps{
                 script{
-             Properties prop = new Properties()
+             //Properties prop = new Properties()
              //def content = readFile 'Test_MQ.properties'
              //InputStream is = new ByteArrayInputStream(content.getBytes());
              //properties.load(is)
