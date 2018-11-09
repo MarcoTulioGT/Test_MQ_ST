@@ -41,14 +41,14 @@ pipeline {
         stage('Parametrizando'){
             steps{
                 script{
-             //Properties prop = new Properties()
+             Properties prop = new Properties()
              //def content = readFile 'Test_MQ.properties'
              //InputStream is = new ByteArrayInputStream(content.getBytes());
              //properties.load(is)
             //InputStream input = null;
            //  try {
-            //input = new FileInputStream("/var/lib/jenkins/workspace/Test_MQ/Test_MQ.properties");
-            //prop.load(input);
+            input = new FileInputStream("/var/lib/jenkins/workspace/Test_MQ/Test_MQ.properties");
+            prop.load(input);
             //prop.list(System.out);
      echo "Hello World"
            // echo "pMQPassword:  ${prop.getProperty("pMQPassword")}"
