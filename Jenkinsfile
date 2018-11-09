@@ -25,7 +25,7 @@ pipeline {
     agent any
      environment {
     def branch = 'master'
-    def pipelineName = 'TestMQ80019021-4860-40fa-82bb-296dafb1703e'
+    def pipelineName = 'TestMQ'
 	def file= 'Test_MQ'
     def workspace = pwd()
 
@@ -72,12 +72,22 @@ pipeline {
 			 }
             }
         }
-		stage('Iniciando QA') {
+		stage('Iniciando QA PIPELINE_PARAMETERS') {
             steps {
                     script {	
                 echo 'Iniciando Pipeline ' 
-                sh 'curl -X POST --header "Content-Type:application/json" --header "X-Requested-By:SDC" -u "admin:admin" http://172.22.171.20:18630/rest/v1/pipeline/TestMQ80019021-4860-40fa-82bb-296dafb1703e/start?rev=0'
-               			}
+                sh 'curl -X POST --header "Content-Type:application/json" --header "X-Requested-By:SDC" -u "admin:admin" http://172.22.171.20:18630/rest/v1/pipeline/'+pipelineName+'/start?rev=0'
+               
+                   		}
+            }
+        }
+        stage('Iniciando QA RUNTIME_PARAMETERS') {
+            steps {
+                    script {	
+                echo 'Iniciando Pipeline ' 
+                
+               	sh 'curl -X POST http://172.22.37.20:18630/rest/v1/pipeline/'+pipelineName+'/start?rev=0 --user "rbarriost:Tigo2018" --header "Content-Type:application/json" --header "X-Requested-By:SDC" --header "X-SS-REST-CALL:true"  --data-binary "{"pMQHost": "amqp://172.22.52.227","pMQQueue": "V1CONHED","pMQUser": "guest","pMQPassword":"guest"}"'
+                   		}
             }
         }
 		
