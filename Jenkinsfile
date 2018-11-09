@@ -46,6 +46,7 @@ pipeline {
              //InputStream is = new ByteArrayInputStream(content.getBytes());
              //properties.load(is)
             InputStream input = null;
+            try {
             input = new FileInputStream("/var/lib/jenkins/workspace/Test_MQ/Test_MQ.properties");
             prop.load(input);
 
@@ -53,6 +54,19 @@ pipeline {
             //echo "pMQQueue:  ${properties.pMQQueue}"
             //echo "pMQHost:  ${properties.pMQHost}"
             //echo "pMQUser:  ${properties.pMQUser}"
+
+            } catch (IOException ex) {
+		ex.printStackTrace();
+	} finally {
+		if (input != null) {
+			try {
+				input.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
 
              def fileJson = workspace+'/'+file+'.json'
              def json = readFile(file:'/var/lib/jenkins/workspace/Test_MQ/Test_MQ.json')
