@@ -42,13 +42,15 @@ pipeline {
             steps{
                 script{
              Properties properties = new Properties()
-             File propertiesFile = new File('Test_MQ.properties')
-             if (propertiesFile.exists()){
-		    propertiesFile.withInputStream{
-		        properties.load(it)
-		        }
-		    }
-           echo "pMQPassword:  ${properties.pMQPassword}"
+             def content = readFile 'Test_MQ.properties'
+
+             Properties properties = new Properties()
+             InputStream is = new ByteArrayInputStream(content.getBytes());
+             properties.load(is)
+
+
+            echo "pMQPassword:  ${properties.pMQPassword}"
+            echo "pMQQueue:  ${properties."$pMQQueue"}"
 
              def fileJson = workspace+'/'+file+'.json'
              def json = readFile(file:'/var/lib/jenkins/workspace/Test_MQ/Test_MQ.json')
