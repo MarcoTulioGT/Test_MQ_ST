@@ -29,7 +29,7 @@ pipeline {
 	def file= 'Test_MQ'
     def workspace = pwd()
     def pass = ''
-    def pMap = [:]
+    def emptyMap = [:]
 
 }
     stages {
@@ -56,8 +56,8 @@ pipeline {
             echo "pMQPassword:  ${prop.getProperty("pMQPassword")}"
             pass = prop.getProperty("pMQPassword")
             
-             pMap = new HashMap(prop);
-             pMap.each { entry ->
+             emptyMap = new HashMap(prop);
+             emptyMap.each { entry ->
              println "Name: $entry.key Age: $entry.value"
              }
             
