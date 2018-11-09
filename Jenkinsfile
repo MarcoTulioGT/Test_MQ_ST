@@ -56,7 +56,6 @@ pipeline {
             echo "pMQPassword:  ${prop.getProperty("pMQPassword")}"
             pass = prop.getProperty("pMQPassword")
             
-             @SuppressWarnings({ "unchecked", "rawtypes" })
              pMap = new HashMap(prop);
              pMap.each { entry ->
              println "Name: $entry.key Age: $entry.value"
