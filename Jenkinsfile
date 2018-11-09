@@ -46,7 +46,7 @@ pipeline {
              //InputStream is = new ByteArrayInputStream(content.getBytes());
              //properties.load(is)
             InputStream input = null;
-            input = new FileInputStream("Test_MQ.properties");
+            input = new FileInputStream("/var/lib/jenkins/workspace/Test_MQ/Test_MQ.properties");
             prop.load(input);
 
             echo "pMQPassword:  ${prop.getProperty("pMQPassword")}"
