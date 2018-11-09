@@ -28,6 +28,7 @@ pipeline {
     def pipelineName = 'TestMQ'
 	def file= 'Test_MQ'
     def workspace = pwd()
+    
 
 }
     stages {
@@ -52,6 +53,7 @@ pipeline {
             //prop.list(System.out);
             echo "Hello World"
             echo "pMQPassword:  ${prop.getProperty("pMQPassword")}"
+            def pass = prop.getProperty("pMQPassword")
             //echo "pMQQueue:  ${properties.pMQQueue}"
             //echo "pMQHost:  ${properties.pMQHost}"
             //echo "pMQUser:  ${properties.pMQUser}"
@@ -73,8 +75,8 @@ pipeline {
              def fileJson = workspace+'/'+file+'.json'
              def json = readFile(file:'/var/lib/jenkins/workspace/Test_MQ/Test_MQ.json')
              def data = new JsonSlurperClassic().parseText(json)
-             echo "pMQHost:  ${prop.getProperty("pMQHost")}"
-             data.pipelineConfig.configuration[12].value[0].value = "amqp://172.22.52.227"
+             echo " Pass: ${pass}"
+              data.pipelineConfig.configuration[12].value[0].value = "amqp://172.22.52.227"
              data.pipelineConfig.configuration[12].value[1].value = "V1SERHED"
              data.pipelineConfig.configuration[12].value[2].value = "guest"
              data.pipelineConfig.configuration[12].value[3].value = "guest"
