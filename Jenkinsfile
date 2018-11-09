@@ -29,6 +29,7 @@ pipeline {
 	def file= 'Test_MQ'
     def workspace = pwd()
     def pass = ''
+    def pMap = [:]
 
 }
     stages {
@@ -54,6 +55,14 @@ pipeline {
             echo "Hello World"
             echo "pMQPassword:  ${prop.getProperty("pMQPassword")}"
             pass = prop.getProperty("pMQPassword")
+            
+             @SuppressWarnings({ "unchecked", "rawtypes" })
+             pMap = new HashMap(prop);
+             pMap.each { entry ->
+             println "Name: $entry.key Age: $entry.value"
+             }
+            
+
             //echo "pMQQueue:  ${properties.pMQQueue}"
             //echo "pMQHost:  ${properties.pMQHost}"
             //echo "pMQUser:  ${properties.pMQUser}"
