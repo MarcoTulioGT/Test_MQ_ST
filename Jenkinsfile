@@ -64,9 +64,9 @@ pipeline {
 			// 	input.close();
 			// } catch (IOException e) {
 			// 	e.printStackTrace();
-			 }
-		}
-	}
+			 
+		
+	
 
 
              def fileJson = workspace+'/'+file+'.json'
