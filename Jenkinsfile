@@ -28,7 +28,7 @@ pipeline {
     def pipelineName = 'TestMQ'
 	def file= 'Test_MQ'
     def workspace = pwd()
-    
+    def pass = ''
 
 }
     stages {
@@ -53,7 +53,7 @@ pipeline {
             //prop.list(System.out);
             echo "Hello World"
             echo "pMQPassword:  ${prop.getProperty("pMQPassword")}"
-            def pass = prop.getProperty("pMQPassword")
+            pass = prop.getProperty("pMQPassword")
             //echo "pMQQueue:  ${properties.pMQQueue}"
             //echo "pMQHost:  ${properties.pMQHost}"
             //echo "pMQUser:  ${properties.pMQUser}"
