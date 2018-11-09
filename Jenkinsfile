@@ -49,8 +49,8 @@ pipeline {
 
             echo "pMQPassword:  ${properties.pMQPassword}"
             echo "pMQQueue:  ${properties.pMQQueue}"
-            echo "pMQHost:  ${properties.pMQQueue}"
-            echo "pMQUser:  ${properties.pMQQueue}"
+            echo "pMQHost:  ${properties.pMQHost}"
+            echo "pMQUser:  ${properties.pMQUser}"
 
              def fileJson = workspace+'/'+file+'.json'
              def json = readFile(file:'/var/lib/jenkins/workspace/Test_MQ/Test_MQ.json')
