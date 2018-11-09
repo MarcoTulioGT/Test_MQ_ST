@@ -64,8 +64,7 @@ pipeline {
 			// 	input.close();
 			// } catch (IOException e) {
 			// 	e.printStackTrace();
-               }
-              script{
+             
 		
 	
 
