@@ -45,12 +45,12 @@ pipeline {
              //def content = readFile 'Test_MQ.properties'
              //InputStream is = new ByteArrayInputStream(content.getBytes());
              //properties.load(is)
-            //InputStream input = null;
+            InputStream input = null;
            //  try {
             input = new FileInputStream("/var/lib/jenkins/workspace/Test_MQ/Test_MQ.properties");
-            prop.load(input);
+            //prop.load(input);
             //prop.list(System.out);
-     echo "Hello World"
+            echo "Hello World"
            // echo "pMQPassword:  ${prop.getProperty("pMQPassword")}"
             //echo "pMQQueue:  ${properties.pMQQueue}"
             //echo "pMQHost:  ${properties.pMQHost}"
